@@ -142,8 +142,10 @@ async def main():
     print("🤖 Bot running...")
     await app.run_polling()
 
-# This part needs to be modified
+# This should work in environments where the event loop is already running (like Render)
 if __name__ == '__main__':
     import asyncio
-    # Run the async function directly using await
-    asyncio.get_event_loop().run_until_complete(main())
+    # Instead of asyncio.run(), directly call the async main function using await
+    loop = asyncio.get_event_loop()
+    loop.create_task(main())
+    loop.run_forever()
