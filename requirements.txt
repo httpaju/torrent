@@ -1,5 +1,5 @@
-python-telegram-bot
-python-libtorrent
+python-telegram-bot==22.0
 requests
 python-dotenv
 qrcode
+libtorrent
